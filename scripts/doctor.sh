@@ -7,7 +7,7 @@ for f in README.md AGENTS.md .mon-harness/state.json .mon-harness/progress.json 
 done
 
 grep -q '主动提醒' AGENTS.md || { echo "缺少主动提醒规则"; missing=1; }
-grep -q '无需安装' README.md || { echo "缺少本地模式说明"; missing=1; }
+grep -q '无需手动安装 Harness' README.md || { echo "缺少本地模式说明"; missing=1; }
 grep -q '## 主流程：想法 → 提交' .agents/skills/m-router/SKILL.md || { echo "路由器缺少主流程"; missing=1; }
 grep -q '### 上下文卫生' .agents/skills/m-router/SKILL.md || { echo "路由器缺少上下文卫生"; missing=1; }
 grep -q '## 入口' .agents/skills/m-router/SKILL.md || { echo "路由器缺少入口"; missing=1; }
@@ -18,6 +18,12 @@ grep -q '## 前置条件' .agents/skills/m-router/SKILL.md || { echo "路由器�
 grep -q '未初始化必须先执行' .agents/skills/m-router/SKILL.md || { echo "路由器缺少自动初始化规则"; missing=1; }
 grep -q '不要只解释能力' .agents/skills/m-start/SKILL.md || { echo "启动技能缺少执行约束"; missing=1; }
 grep -q 'stage.*empty.*m-start' AGENTS.md || { echo "智能体规则缺少空状态启动"; missing=1; }
+grep -q 'npx --yes skills add therealharpaljadeja/monskills' .agents/skills/m-start/SKILL.md || { echo "启动技能缺少 monskill 安装命令"; missing=1; }
+grep -q -- '--agent codex' .agents/skills/m-start/SKILL.md || { echo "启动技能缺少 Codex 本地安装目标"; missing=1; }
+grep -q '不要全局安装 monskill' .agents/skills/m-start/SKILL.md || { echo "启动技能缺少本地安装约束"; missing=1; }
+grep -q '不要重复安装 monskill' .agents/skills/m-start/SKILL.md || { echo "启动技能缺少重复安装保护"; missing=1; }
+grep -q '安装成功后提示' .agents/skills/m-start/SKILL.md || { echo "启动技能缺少安装完成提示"; missing=1; }
+[ ! -e scripts/install-monskill.sh ] || { echo "不需要单独的 monskill 安装脚本"; missing=1; }
 
 bad_skill=0
 for s in .agents/skills/*/SKILL.md; do

@@ -1,6 +1,7 @@
 # Monskill 交接
 
-Harness 不复制 monskill。
+Harness 不复制 monskill 的能力。
+首次启动会用项目级安装接入 monskill。
 
 ## 分工
 

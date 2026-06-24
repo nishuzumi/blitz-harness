@@ -8,6 +8,7 @@
 - 先读 `.mon-harness/state.json` 和 `docs/status.md`。
 - 当 `stage` 是 `empty` 时，立即执行 `m-start`，不要只解释能力。
 - Harness 决定做什么、砍什么、怎么讲。
+- `m-start` 自动把 monskill 安装到项目本地。
 - monskill 负责 Monad 工程实现。
 - 不依赖 MOJO；赛事信息可由用户粘贴。
 - 缺信息时只问一个问题。
