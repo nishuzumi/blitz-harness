@@ -1,0 +1,14 @@
+{
+  "name": "monad-hackathon-harness",
+  "platform": "codex",
+  "language": "zh-CN",
+  "stage": "empty",
+  "monskill": "required",
+  "deadline": null,
+  "track": null,
+  "idea_locked": false,
+  "demo_path": null,
+  "next_command": "$m-start",
+  "proactive_coach": true,
+  "updated_at": "2026-06-23"
+}
